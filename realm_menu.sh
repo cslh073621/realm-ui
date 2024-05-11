@@ -106,6 +106,12 @@ function restart_realm() {
 function check_status() {
     # 执行查看状态命令
     sudo systemctl status realm
+
+    # 等待用户按任意键继续
+    echo "按任意键继续..."
+    read -n 1 -s
+
+    # 检查上一条命令的退出状态
     if [ $? -eq 0 ]; then
         whiptail --title "状态查询" --msgbox "Realm状态查询成功。" 8 78
     else
