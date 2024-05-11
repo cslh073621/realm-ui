@@ -37,14 +37,16 @@ function show_menu() {
         echo "3. 重启Realm"
         echo "4. 查看Realm状态"
         echo "5. 退出"
+        echo "6. 删除脚本"
         echo "==============================================="
-        read -p "请输入你的选择 [1-5]: " choice
+        read -p "请输入你的选择 [1-6]: " choice
         case $choice in
             1) install_realm ;;
             2) uninstall_realm ;;
             3) restart_realm ;;
             4) check_status ;;
             5) exit 0 ;;
+            6) delete_script ;;
             *) echo "无效的选择，请重新输入。" ;;
         esac
         read -p "按任意键继续..."
@@ -116,6 +118,19 @@ function check_status() {
         whiptail --title "状态查询" --msgbox "Realm状态查询成功。" 8 78
     else
         whiptail --title "状态查询" --msgbox "状态查询时出现错误。" 8 78
+    fi
+}
+
+# 删除脚本函数
+function delete_script() {
+    # 确认删除
+    if whiptail --title "确认删除" --yesno "你确定要删除这个脚本吗？" 8 78; then
+        # 删除脚本文件
+        rm "$0"
+        echo "脚本已删除。"
+        exit 0
+    else
+        echo "删除操作已取消。"
     fi
 }
 
