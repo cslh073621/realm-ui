@@ -83,6 +83,7 @@ function uninstall_realm() {
     # 删除Realm可执行文件和配置文件
     sudo rm /root/realm
     sudo rm /root/realm.toml
+    sudo rm /root/setup_realm.sh
 
     # 删除下载的Realm压缩包（如果需要）
     sudo rm /root/realm.tar.gz
