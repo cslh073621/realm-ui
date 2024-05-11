@@ -124,10 +124,13 @@ function check_status() {
 # 删除脚本函数
 function delete_script() {
     # 确认删除
-    if whiptail --title "确认删除" --yesno "你确定要删除这个脚本吗？" 8 78; then
+    if whiptail --title "确认删除" --yesno "你确定要删除这个脚本和Realm吗？" 8 78; then
+        # 卸载Realm
+        uninstall_realm
+
         # 删除脚本文件
         rm "$0"
-        echo "脚本已删除。"
+        echo "脚本和Realm已删除。"
         exit 0
     else
         echo "删除操作已取消。"
