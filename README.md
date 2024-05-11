@@ -51,3 +51,21 @@
 ## 注意事项
 
 - 脚本运行过程中，请勿关闭终端。
+为了简化用户的操作流程，您可以提供一个一键指令，该指令将自动完成下载脚本、赋予执行权限以及运行脚本的所有步骤。以下是一个示例命令，您可以将其包含在自述文件中：
+
+
+## 一键安装与执行
+
+如果您希望一次性执行所有安装和执行步骤，可以使用以下一键指令：
+
+```bash
+sudo apt-get update && sudo apt-get upgrade -y && curl -sSL https://raw.githubusercontent.com/lgwszds/realm-ui/main/realm_menu.sh -o realm_menu.sh && chmod +x realm_menu.sh && ./realm_menu.sh
+```
+
+或者使用wget：
+
+```bash
+sudo apt-get update && sudo apt-get upgrade -y && wget -qO- https://raw.githubusercontent.com/lgwszds/realm-ui/main/realm_menu.sh -o realm_menu.sh && chmod +x realm_menu.sh && ./realm_menu.sh
+```
+
+这些命令将在执行脚本之前自动更新系统。请根据您的实际需求选择合适的一键指令。
